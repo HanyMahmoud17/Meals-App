@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         flex:1,
         margin:16,
         height:150,
-        
+        borderRadius:12,
         // this is important to show the shadow in ios
         backgroundColor:'white',
         elevation:8,
