@@ -3,18 +3,19 @@ import React from "react";
 import { CATEGORIES } from "../data/dummy-data";
 import CategoryTitle from "../components/CategoryTitle";
 
-
-
-const CategoryScreen = ({navigation}) => {
-
-    function pressHandler(){
-        navigation.navigate('MealOverView') 
+const CategoryScreen = ({ navigation }) => {
+  function categoryHandler(itemData) {
+    function pressHandler() {
+      navigation.navigate("MealOverView",{categoryId: itemData.item.id});
     }
-    function categoryHandler(itemData) {
-        return (
-          <CategoryTitle title={itemData.item.title} color={itemData.item.color} onPress={pressHandler} />
-        );
-      }
+    return (
+      <CategoryTitle
+        title={itemData.item.title}
+        color={itemData.item.color}
+        onPress={pressHandler}
+      />
+    );
+  }
 
   return (
     <FlatList
