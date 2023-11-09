@@ -4,6 +4,7 @@ import CategoryScreen from './screens/CategoryScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
+import MealDetailsScreen from './screens/MealDetailsScreen';
 
 export default function App() {
   const stack= createNativeStackNavigator();
@@ -20,6 +21,7 @@ export default function App() {
           title:'All Categories'
         }} />
         <stack.Screen name='MealOverView' component={MealsOverviewScreen} />
+        <stack.Screen name='MealDetail' component={MealDetailsScreen} />
       </stack.Navigator>
     </NavigationContainer>
     </>

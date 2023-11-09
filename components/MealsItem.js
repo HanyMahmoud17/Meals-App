@@ -8,14 +8,22 @@ import {
   View,
 } from "react-native";
 import React from "react";
+import { MEALS } from "../data/dummy-data";
+import { useNavigation } from "@react-navigation/native";
 
 const MealsItem = ({
+  id,
   title,
   imageUrl,
   affordability,
   complexity,
-  duration,
+  duration
 }) => {
+  const navigation=useNavigation();
+  function mealDetailHandler(){
+    navigation.navigate('MealDetail',{mealId:id})
+    
+  }
   return (
     <View style={styles.screen}>
       <Pressable 
@@ -23,6 +31,7 @@ const MealsItem = ({
         style={({ pressed }) => [
           pressed ? styles.btnPressed : null,
         ]}
+        onPress={mealDetailHandler}
       >
         <View style={styles.innerView}>
           <View>
