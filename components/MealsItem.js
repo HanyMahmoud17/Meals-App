@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { MEALS } from "../data/dummy-data";
 import { useNavigation } from "@react-navigation/native";
+import MealDetails from "./MealDetails";
 
 const MealsItem = ({
   id,
@@ -38,11 +39,7 @@ const MealsItem = ({
             <Image source={{ uri: imageUrl }} style={styles.img} />
             <Text style={styles.title}>{title}</Text>
           </View>
-          <View style={styles.details}>
-            <Text style={styles.itemDetail}>{affordability}</Text>
-            <Text style={styles.itemDetail}>{complexity}</Text>
-            <Text style={styles.itemDetail}>{duration}</Text>
-          </View>
+          <MealDetails duration={duration} affordability={affordability} complexity={complexity} />
         </View>
       </Pressable>
     </View>
@@ -81,14 +78,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
     margin: 8,
   },
-  details: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    margin: 8,
-  },
-  itemDetail: {
-    marginHorizontal: 4,
-    fontSize: 12,
-  },
+
 });
