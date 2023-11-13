@@ -9,7 +9,8 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import MealDetailsScreen from "./screens/MealDetailsScreen";
 import FavoriteScreen from "./screens/FavoriteScreen";
-
+import {Ionicons} from "@expo/vector-icons";
+ 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
@@ -21,13 +22,19 @@ function DrawerNavigator() {
         headerStyle: { backgroundColor: "#351401" },
         headerTintColor: "white",
         sceneContainerStyle: { backgroundColor: "#3f2f25" },
+        drawerContentStyle:{backgroundColor :"#351401"},
+        drawerInactiveTintColor:'white',
+        drawerActiveTintColor:'#3f2f25',
+        drawerActiveBackgroundColor:'#e4baa1',
       }}
     >
       <Drawer.Screen name="categories" component={CategoryScreen} options={{
         title:'All Categories',
+        drawerIcon:({color,size})=> <Ionicons color={color} size={size} name="list"/>
       }}/>
       <Drawer.Screen name="favorites" component={FavoriteScreen} options={{
         title:'Favorite Categories',
+        drawerIcon:({color,size})=> <Ionicons color={color} size={size} name="star"/>
       }}/>
     </Drawer.Navigator>
   );
