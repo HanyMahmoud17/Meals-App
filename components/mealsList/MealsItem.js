@@ -8,9 +8,9 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import { MEALS } from "../data/dummy-data";
+import { MEALS } from "../../data/dummy-data";
 import { useNavigation } from "@react-navigation/native";
-import MealDetails from "./MealDetails";
+import MealDetails from "../MealDetails";
 
 const MealsItem = ({
   id,
