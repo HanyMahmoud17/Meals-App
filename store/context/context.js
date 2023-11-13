@@ -3,19 +3,19 @@ import { createContext, useState } from "react";
 // here i should create a uppercase letter of function to use it after that as a component
 export const FavoriteContext=createContext({
     ids:[],
-    addFavoriteIds:(id)=>{},
-    removeFavoriteIds:(id)=>{},
+    addFavorite:(id)=>{},
+    removeFavorite:(id)=>{},
 });
 
 
 function FavoriteContextProvider({children}){
-    const [favoriteIds,setFavoriteIds]=useState();
+    const [favoriteIds,setFavoriteIds]=useState([]);
 
     function addFavorite(id){
         setFavoriteIds((currentId)=> [...currentId,id])
     }
     function removeFavorite(id){
-        setFavoriteIds((currentId)=> currentId.filter((favId)=> favId !== id) )
+        setFavoriteIds((currentId)=> currentId.filter((mealId)=> mealId !== id) )
     }
 
     const value={
@@ -24,9 +24,9 @@ function FavoriteContextProvider({children}){
         removeFavorite:removeFavorite
     }
     
-    return <FavoriteContext value={value}>
+    return <FavoriteContext.Provider value={value}>
         {children}
-    </FavoriteContext>
+    </FavoriteContext.Provider>
 }
 
 export default FavoriteContextProvider;
